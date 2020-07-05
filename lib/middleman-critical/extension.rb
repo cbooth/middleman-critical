@@ -26,7 +26,7 @@ module Middleman
       Dir.glob(htmlDir) do |file|
         assetPath = rootPath + File::SEPARATOR + file
         file.slice! buildDir + File::SEPARATOR
-        %x(#{options.binary} #{assetPath} --base #{buildDir} --htmlTarget #{file} --extract --inline)
+        %x(#{options.binary} #{assetPath} --base #{buildDir} --inline > #{file})
       end
 
     end
